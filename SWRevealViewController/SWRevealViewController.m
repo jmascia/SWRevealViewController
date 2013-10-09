@@ -841,6 +841,11 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
     }
     
     [_contentView dragFrontViewToXLocation:xLocation];
+  
+    // JM: notify delegate about dragging
+    if ([_delegate respondsToSelector:@selector(revealController:didPanToXLocation:)]) {
+      [_delegate revealController:self didPanToXLocation:xLocation];
+    }
 }
 
 
